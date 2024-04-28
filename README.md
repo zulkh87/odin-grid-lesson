@@ -1,1 +1,1 @@
-Odin Project Grid Lesson for future reeference
+Odin Project Grid Lesson for future reference

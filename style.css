@@ -13,3 +13,11 @@
   grid-template-rows: repeat(2, 150px);
   grid-template-columns: repeat(5, 150px);
 }
+
+p {
+  margin: 12px auto 24px;
+}
+
+img {
+  height: 60px;
+}
