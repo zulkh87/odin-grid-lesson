@@ -8,10 +8,39 @@
   padding: 4px;
   border: 1px solid goldenrod;
   background-color: skyblue;
+  /* absolute units */
   /* grid-template-rows: 150px 150px;
   grid-template-columns: 150px 150px 150px 150px 150px; */
-  grid-template-rows: repeat(2, 150px);
-  grid-template-columns: repeat(5, 150px);
+  /* repeat && absolute units */
+  /* grid-template-rows: repeat(2, 150px);
+  grid-template-columns: repeat(5, 150px); */
+  /* repeat fr refactor */
+  /* grid-template-rows: repeat(2, 1fr); */
+  /* grid-template-columns: repeat(5, 1fr); */
+  /* grid-template-columns: repeat(2, 2fr) repeat(3, 1fr); */
+  /* grid-template-columns: repeat(2, 125px) repeat(3, 1fr); */
+  /* grid-template-rows: repeat(2, min(200px, 50%));
+  grid-template-columns: repeat(5, max(120px, 15%)); */
+  grid-template-rows: repeat(2, 1fr);
+  /* grid-template-columns: repeat(5, minmax(150px, 200px)); */
+  /* clamp(minimum-size, ideal-size, maximum-size) */
+  /* grid-template-columns: repeat(5, clamp(150px, 20%, 200px)); */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Remember that auto-fit will return the highest positive integer without overflowing the grid. */
+}
+
+/* .non-grid-example {
+  width: clamp(500px, 80%, 1000px);
+} */
+
+/* When the grid is expanded to a size where another grid item could fit, but there aren’t any left, auto-fit will keep the grid items at their max size. Using auto-fill, the grid items will snap back down to their min size once the space becomes available to add another grid item, even if there isn’t one to be rendered */
+
+.example {
+  display: grid;
+  width: 1000px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 p {
